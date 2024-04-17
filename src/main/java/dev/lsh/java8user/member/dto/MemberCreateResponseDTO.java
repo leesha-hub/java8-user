@@ -13,6 +13,7 @@ public class MemberCreateResponseDTO {
     private String memId;
     private String memPw;
     private String nickname;
+    private String memName;
     private String phone;
     private String email;
     private LocalDateTime insertDateTime;
@@ -22,6 +23,7 @@ public class MemberCreateResponseDTO {
         this.memId = member.getMemId();
         this.memPw = member.getMemPw();
         this.nickname = member.getNickname();
+        this.memName = member.getMemName();
         this.phone = member.getPhone();
         this.email = member.getEmail();
         this.insertDateTime = member.getInsertDateTime();
