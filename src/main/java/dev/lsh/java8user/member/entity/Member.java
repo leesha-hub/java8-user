@@ -9,6 +9,9 @@ import javax.validation.constraints.NotNull;
 
 import lombok.Builder;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -22,6 +25,7 @@ public class Member {
       이름 : memName
       전화번호 : phone
       이메일주소 : email
+      가입일 : insertDateTime
     */
 
     @Id
@@ -49,4 +53,8 @@ public class Member {
 
     @Column(length = 50)
     private String email;
+
+    @NotNull
+    @CreationTimestamp
+    private LocalDateTime insertDateTime;
 }

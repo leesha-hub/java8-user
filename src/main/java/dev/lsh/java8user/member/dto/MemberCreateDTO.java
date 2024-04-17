@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -29,4 +30,6 @@ public class MemberCreateDTO {
 
 	@Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", message = "이메일은 필수 입력 값입니다")
 	private String email;
+
+	private LocalDateTime insertDateTime;
 }

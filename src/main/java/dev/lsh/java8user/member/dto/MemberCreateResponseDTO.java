@@ -4,6 +4,8 @@ import dev.lsh.java8user.member.entity.Member;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @NoArgsConstructor
 @Getter
 public class MemberCreateResponseDTO {
@@ -13,6 +15,7 @@ public class MemberCreateResponseDTO {
     private String nickname;
     private String phone;
     private String email;
+    private LocalDateTime insertDateTime;
 
     public MemberCreateResponseDTO fromMemberCreateLog(Member member) {
         this.memDetailNum = member.getMemDetailNum();
@@ -21,6 +24,7 @@ public class MemberCreateResponseDTO {
         this.nickname = member.getNickname();
         this.phone = member.getPhone();
         this.email = member.getEmail();
+        this.insertDateTime = member.getInsertDateTime();
         return this;
     }
 

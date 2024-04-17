@@ -6,6 +6,8 @@ import dev.lsh.java8user.member.entity.Member;
 import dev.lsh.java8user.member.entity.MemberRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 public class MemberService {
     private MemberRepository memberRepository;
@@ -14,6 +16,8 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
     public MemberCreateResponseDTO insert(MemberCreateDTO memberCreateDTO) {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+
         Member member = Member.builder()
                 .memId(memberCreateDTO.getMemId())
                 .memPw(memberCreateDTO.getMemPw())
@@ -21,6 +25,7 @@ public class MemberService {
                 .memName(memberCreateDTO.getMemName())
                 .phone(memberCreateDTO.getPhone())
                 .email(memberCreateDTO.getEmail())
+                .insertDateTime(currentDateTime)
                 .build();
 
         this.memberRepository.save(member);
