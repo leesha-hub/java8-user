@@ -1,22 +1,28 @@
 package dev.lsh.java8user.member.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-@Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+import lombok.Builder;
+import lombok.Data;
+
 @Entity
-@Table
+@Data
+@Builder
 public class Member {
+
+    /*
+      회원id : memId
+      비밀번호 : memPw
+      닉네임 : nickname
+      이름 : memName
+      전화번호 : phone
+      이메일주소 : email
+    */
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +36,10 @@ public class Member {
     @Column(length = 60)
     private String memPw;
 
+    @Column(length = 30)
+    private String nickname;
+
+    @NotNull
     @Column(length = 30)
     private String memName;
 
